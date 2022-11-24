@@ -7,7 +7,7 @@
 #
 ###############################################
 
-write-host "`n`nPlease wait - gathering data...`n`n" -fore yellow
+Write-Output "`n`nPlease wait - gathering data...`n`n"
 
 Try {
     # Get all nodes in the cluster
@@ -23,12 +23,11 @@ Try {
         }
     }
 
-    write-host "Task Completed" -fore Green
+    Write-Output "Task Completed"
 }
 Catch {
-    write-host "... It has not been possible to return data on Hyper-V checkpoints. The error returned was: `n"
-    write-host $($Error[0].exception)
-    write-host "`n"
+    Write-Output "... It has not been possible to return data on Hyper-V checkpoints. The error returned was: `n"
+    Write-Output "$($Error[0].exception) `n"
 }
 
 # End
